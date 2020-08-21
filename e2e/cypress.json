@@ -1,0 +1,18 @@
+{
+  "projectId": "ki2hyc",
+  "integrationFolder": "cypress/tests",
+  "defaultCommandTimeout": 10000,
+  "env": {
+    "baseUrl": "",
+    "baseUser": {
+      "login": "",
+      "password": "",
+      "url": "",
+      "name": "",
+      "group": ""
+    },
+    "customer": {
+      "url": ""
+    }
+  }
+}
