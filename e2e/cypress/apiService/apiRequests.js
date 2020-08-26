@@ -3,8 +3,10 @@ import helper from "./../helper/helper";
 
 function ApiRequests () {
 
-    return {
+    const baseUrl = Cypress.env("baseUrl");
 
+    return {
+        
         getUserPostRequest (token, params) {
             return {
                 headers: {
@@ -12,7 +14,7 @@ function ApiRequests () {
                     "Authorization": `Bearer ${token}`,
                     "Nonce": helper.generateUUID()
                 },
-                url: "https://rehearsal-app-bravo.turvo.com/api/users?fullResponse=true",
+                url: `${baseUrl}/api/users?fullResponse=true`,
                 method: "POST",
                 json: {
                     "full_name": params.name,
@@ -36,7 +38,7 @@ function ApiRequests () {
                     "Authorization": `Bearer ${token}`,
                     "Nonce": helper.generateUUID()
                 },
-                url: `https://rehearsal-app-bravo.turvo.com/api/users/${params.userId}?fullResponse=true`,
+                url: `${baseUrl}/api/users/${params.userId}?fullResponse=true`,
                 method: "PUT",
                 json: {
                     "permission":{
@@ -54,7 +56,7 @@ function ApiRequests () {
                     "Authorization": `Bearer ${token}`,
                     "Nonce": helper.generateUUID()
                 },
-                url: `https://rehearsal-app-bravo.turvo.com/api/users/${params.userId}`,
+                url: `${baseUrl}/api/users/${params.userId}`,
                 method: "DELETE"
             };
         }
